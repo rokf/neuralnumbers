@@ -14,7 +14,7 @@ local conf = {
   inputs = 32 * 32, -- The NN will have that many inputs (total number of pixels)
   outputs = 10, -- Numbers can be from 0-9
   hidden = 10, -- Number of hidden neurons
-  iterations = 1000, -- Number of epochs the trainer is going to train
+  iterations = 500, -- Number of epochs the trainer is going to train
   learning_rate = 0.01 -- The step of change per iteration
 }
 
