@@ -25,7 +25,11 @@ function give_classifier(image)
   local out = {}
   for row = 1, image_size[1] do
     for col = 1, image_size[2] do
-      table.insert(out, image[row][col])
+      if image[row][col] == 255 then
+        table.insert(out, 0) -- Background is white
+      else
+        table.insert(out, 1) -- The numbers are black
+      end
     end
   end
   return out
@@ -41,7 +45,6 @@ function main()
       local img = image.load(full_name, 1, 'byte') -- Load as a grayscale image
       img = img[1]
       local classifier = give_classifier(img)
-      print(classifier)
       local n_inputs = torch.Tensor(classifier) -- Construct input tensor
       local n_outputs = torch.Tensor(conf.outputs):zero() -- Construct output tensor
       n_outputs[number+1] = 1
