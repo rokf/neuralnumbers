@@ -1,4 +1,4 @@
-# Neuralnumbers
+# Neural Numbers
 
 This is an example of how to recognise numbers from small digital images.
 
