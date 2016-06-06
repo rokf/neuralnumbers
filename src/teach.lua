@@ -11,7 +11,7 @@ local conf = {
   folder = '../img/learning',
   im_x = 32,
   im_y = 32,
-  inputs = im_x * im_y, -- The NN will have that many inputs (total number of pixels)
+  inputs = 32 * 32, -- The NN will have that many inputs (total number of pixels)
   outputs = 10, -- Numbers can be from 0-9
   hidden = 10, -- Number of hidden neurons
   iterations = 1000, -- Number of epochs the trainer is going to train
@@ -38,8 +38,10 @@ function main()
     if file ~= '.' and file ~= '..' then
       local full_name = conf.folder .. '/' .. file
       local number = tonumber(string.sub(file,1,1)) -- Take the first character and convert it to a number
-      local img = image.load(f, 1, 'byte') -- Load as a grayscale image
+      local img = image.load(full_name, 1, 'byte') -- Load as a grayscale image
+      img = img[1]
       local classifier = give_classifier(img)
+      print(classifier)
       local n_inputs = torch.Tensor(classifier) -- Construct input tensor
       local n_outputs = torch.Tensor(conf.outputs):zero() -- Construct output tensor
       n_outputs[number+1] = 1
