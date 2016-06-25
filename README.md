@@ -1,7 +1,7 @@
 
 ## Neural Numbers
 
-![Sample](img/learning/8_5.png)
+![Sample](img/learning/8_5.png) ![Sample](img/learning/7_1.png)  ![Sample](img/learning/0_1.png)
 
 This is an example of how to recognise numbers from small digital images.
 
